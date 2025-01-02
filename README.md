@@ -2,8 +2,8 @@ goical
 =================================
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/vodolaz095/goical)](https://pkg.go.dev/github.com/vodolaz095/goical?tab=doc)
 
-Very simple [*.ics]((https://en.wikipedia.org/wiki/ICalendar)) file generator for Golang.
-Generates local files and can be used for creating HTTP server responses.
+Very simple [*.ics](https://en.wikipedia.org/wiki/ICalendar) file generator for Golang.
+Package generates local files and can be used for creating HTTP server responses.
 At least calendars generated can be consumed by Mozilla Thunderbird:
 
 ![screenshot.png](screenshot.png)
