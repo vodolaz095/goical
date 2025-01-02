@@ -7,8 +7,8 @@ import (
 	"time"
 )
 
-func RussianHolidays(w io.Writer) error {
-	holidays := New(time.Local)
+func RussianHolidays(tz *time.Location, w io.Writer) error {
+	holidays := New(tz)
 	now := time.Now()
 	holidays.AddEvent(Event{
 		UID:         fmt.Sprintf("new_year_%v", now.Year()),

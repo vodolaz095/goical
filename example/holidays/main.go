@@ -3,12 +3,17 @@ package main
 import (
 	"log"
 	"os"
+	"time"
 
 	"github.com/vodolaz095/goical"
 )
 
 func main() {
-	err := goical.RussianHolidays(os.Stdout)
+	tz, err := time.LoadLocation("Europe/Moscow")
+	if err != nil {
+		log.Fatalf("error loading location: %s", err)
+	}
+	err = goical.RussianHolidays(tz, os.Stdout)
 	if err != nil {
 		log.Fatalf("error rendering: %s", err)
 	}

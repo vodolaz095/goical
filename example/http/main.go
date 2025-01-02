@@ -10,9 +10,14 @@ import (
 )
 
 func main() {
+	tz, err := time.LoadLocation("Europe/Moscow")
+	if err != nil {
+		log.Fatalf("error loading location: %s", err)
+	}
+
 	http.HandleFunc("/holidays", func(writer http.ResponseWriter, request *http.Request) {
 		writer.Header().Set("Content-Type", "text/calendar")
-		err := goical.RussianHolidays(writer)
+		err := goical.RussianHolidays(tz, writer)
 		if err != nil {
 			log.Fatalf("error rendering: %s", err)
 		}
@@ -20,7 +25,7 @@ func main() {
 
 	http.HandleFunc("/today", func(writer http.ResponseWriter, request *http.Request) {
 		writer.Header().Set("Content-Type", "text/calendar")
-		calendar := goical.New(time.Local)
+		calendar := goical.New(tz)
 		now := time.Now()
 		u, _ := url.Parse("http://example.org")
 		calendar.AddEvent(goical.Event{
