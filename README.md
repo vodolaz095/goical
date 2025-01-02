@@ -4,7 +4,7 @@ goical
 
 Very simple [*.ics]((https://en.wikipedia.org/wiki/ICalendar)) file generator for Golang.
 Generates local files and can be used for creating HTTP server responses.
-At least calendars generated can be consumed by Mozilla Thunderbird
+At least calendars generated can be consumed by Mozilla Thunderbird:
 
 ![screenshot.png](screenshot.png)
 
