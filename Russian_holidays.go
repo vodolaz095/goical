@@ -16,7 +16,7 @@ func RussianHolidays(tz *time.Location, w io.Writer) error {
 		Summary:     "Happy New year",
 		Description: fmt.Sprintf("Celebration of beginning of %v year", now.Year()),
 		Location:    "your home",
-		Start:       time.Date(now.Year(), time.January, 1, 0, 0, 0, 0, time.Local),
+		Start:       time.Date(now.Year(), time.January, 0, 23, 59, 59, 0, time.Local),
 		End:         time.Date(now.Year(), time.January, 1, 23, 59, 59, 0, time.Local),
 	})
 

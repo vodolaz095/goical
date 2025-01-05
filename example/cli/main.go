@@ -18,18 +18,20 @@ func main() {
 	now := time.Now()
 	u, _ := url.Parse("http://example.org")
 	calendar.AddEvent(goical.Event{
-		UID:         "today_with_john_doe",
-		Timestamp:   time.Now(),
+		// mandatory fields
+		UID:   "today_with_john_doe",
+		Start: now.Add(time.Minute),
+		End:   now.Add(time.Hour),
+		// optional fields
+		Timestamp:   now,
 		Summary:     "Some important meeting summary",
-		Description: "Some important meeting summary",
+		Description: "Some important meeting description",
 		Location:    "nowhere",
 		URL:         u,
 		Organizer: goical.Person{
 			CommonName: "John Doe",
 			Email:      "john.doe@example.org",
 		},
-		Start: now.Add(time.Minute),
-		End:   now.Add(time.Hour),
 	})
 
 	err = calendar.Render(os.Stdout)
