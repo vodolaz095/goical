@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-const TimeFormat = "20060102T030405"
+const TimeFormat = "20060102T150405"
 
 type Calendar struct {
 	loc    *time.Location
