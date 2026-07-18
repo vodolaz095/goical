@@ -99,7 +99,7 @@ func RussianHolidays(tz *time.Location, w io.Writer) error {
 		UID:         fmt.Sprintf("unity_day_%v", now.Year()),
 		Timestamp:   time.Now(),
 		Summary:     "День Народного Единства",
-		Description: "В 1612 году польско-литовские захватчики были изгнаны из Кремля вторым народным ополчением под руководством Минина И Пожарского",
+		Description: "В 1612 году польско-литовские захватчики были изгнаны из Кремля вторым народным ополчением под руководством Минина и Пожарского",
 		Start:       time.Date(now.Year(), time.November, 4, 0, 0, 0, 0, time.Local),
 		End:         time.Date(now.Year(), time.November, 4, 23, 59, 59, 0, time.Local),
 	})
@@ -115,7 +115,7 @@ func RussianHolidays(tz *time.Location, w io.Writer) error {
 
 	err := holidays.Render(w)
 	if err != nil {
-		fmt.Errorf("error rendering calendar: %w", err)
+		return fmt.Errorf("error rendering calendar: %w", err)
 	}
 	return nil
 }
