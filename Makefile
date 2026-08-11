@@ -8,6 +8,7 @@ start/http:
 	go run example/http/main.go
 
 tools:
+	which go
 	which golint # go install golang.org/x/lint/golint@latest
 	which staticcheck # go install honnef.co/go/tools/cmd/staticcheck@latest
 

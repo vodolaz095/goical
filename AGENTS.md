@@ -20,10 +20,22 @@ go run example/holidays/main.go
 go run example/http/main.go
 ```
 
-### Package Usage
+### Lint
 ```bash
-# Build package for distribution
-go build -o goical .
+# Ensure all linting tools are installed
+make tools
+
+# Run all linters (gofmt, golint, go vet, staticcheck)
+make lint
+```
+
+### Package Usage
+Should be installed by `go get -u github.com/vodolaz095/ical` and imported as dependency using
+
+```go
+
+import "github.com/vodolaz095/ical"
+
 ```
 
 ---
