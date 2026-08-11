@@ -154,7 +154,7 @@ http.HandleFunc("/calendar", func(w http.ResponseWriter, r *http.Request) {
 
 ## Testing Strategy
 
-This repository currently **does not have automated tests**. Tests would need to be added manually using Go's standard `go test` framework.
+Run unit tests via `make test`.
 
 ---
 
