@@ -179,21 +179,20 @@ func TestRenderEmptyCalendar(t *testing.T) {
 		t.Fatalf("Render failed: %v", err)
 	}
 
-	output := buf.String()
 	// Should have VCALENDAR header (15 chars + CR/LF ending)
-	if len(output) < 16 {
-		t.Fatalf("Expected VCALENDAR header in output, got len=%d, output=%q", len(output), output)
+	if len(buf.Bytes()) < 16 {
+		t.Fatalf("Expected VCALENDAR header in output, got len=%d", len(buf.Bytes()))
 	}
 	// Check first 15 characters match BEGIN:VCALENDAR
 	expectedPrefix := [15]byte{'B', 'E', 'G', 'I', 'N', ':', 'V', 'C', 'A', 'L', 'E', 'N', 'D', 'A', 'R'}
 	for i, c := range expectedPrefix {
-		if output[i] != byte(c) {
-			t.Fatalf("Expected %q at position %d, got %q", c, i, output[i])
+		if buf.Bytes()[i] != byte(c) {
+			t.Fatalf("Expected %q at position %d, got %q", c, i, buf.Bytes()[i])
 		}
 	}
 	// The next character should be either \r or \n (LF line ending)
-	if output[15] != '\r' && output[15] != '\n' {
-		t.Fatalf("Expected line ending after VCALENDAR header, got %q", output[15])
+	if buf.Bytes()[15] != '\r' && buf.Bytes()[15] != '\n' {
+		t.Fatalf("Expected line ending after VCALENDAR header, got %q", buf.Bytes()[15])
 	}
 }
 
