@@ -1,5 +1,6 @@
 goical
 =================================
+[![Go](https://github.com/vodolaz095/goical/actions/workflows/go.yml/badge.svg)](https://github.com/vodolaz095/goical/actions/workflows/go.yml)
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/vodolaz095/goical)](https://pkg.go.dev/github.com/vodolaz095/goical?tab=doc)
 
 Very simple [*.ics](https://en.wikipedia.org/wiki/ICalendar) file generator for Golang.
