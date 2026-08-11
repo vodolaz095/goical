@@ -7,13 +7,20 @@ import (
 	"time"
 )
 
+// TimeFormat is the format for timestamps in iCalendar output
 const TimeFormat = "20060102T150405"
 
+// Calendar manages calendar events with timezone support
+// and renders them to vCalendar format
+// https://icalendar.org/iCalendar-RFC-5545/3-8-4-1.html
 type Calendar struct {
 	loc    *time.Location
 	events []Event
 }
 
+// AddEvent adds a new event to the calendar. Returns self for method chaining.
+// Validates that UID is not empty and Start/End times are valid.
+// Events with Start after End are silently ignored.
 func (c *Calendar) AddEvent(input Event) *Calendar {
 	if input.UID == "" {
 		return c
@@ -35,7 +42,6 @@ func (c *Calendar) AddEvent(input Event) *Calendar {
 }
 
 func (c *Calendar) Render(writer io.Writer) (err error) {
-	var org string
 	if c.loc == nil {
 		c.loc = time.Local
 	}
@@ -79,7 +85,7 @@ func (c *Calendar) Render(writer io.Writer) (err error) {
 				return err
 			}
 		}
-		org = c.events[i].Organizer.String()
+		org := c.events[i].Organizer.String()
 		if org != "" {
 			_, err = fmt.Fprintf(writer, "%s\r\n", org)
 			if err != nil {
