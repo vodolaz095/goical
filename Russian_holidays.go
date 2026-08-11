@@ -8,6 +8,7 @@ import (
 )
 
 // RussianHolidays generates a vCalendar containing preset Russian holidays
+// https://icalendar.org/iCalendar-RFC-5545/3-8-4-1.html
 func RussianHolidays(tz *time.Location, w io.Writer) error {
 	holidays := New(tz)
 	now := time.Now()

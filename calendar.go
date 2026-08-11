@@ -41,6 +41,8 @@ func (c *Calendar) AddEvent(input Event) *Calendar {
 	return c
 }
 
+// Render renders calendar events via vCalendar format into writer provided
+// https://icalendar.org/iCalendar-RFC-5545/3-8-4-1.html
 func (c *Calendar) Render(writer io.Writer) (err error) {
 	if c.loc == nil {
 		c.loc = time.Local

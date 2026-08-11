@@ -10,6 +10,7 @@ import (
 // https://icalendar.org/iCalendar-RFC-5545/3-8-4-3-organizer.html
 // https://icalendar.org/iCalendar-RFC-5545/3-8-4-6-uniform-resource-locator.html
 
+// Person represents organizer contact information
 type Person struct {
 	CommonName string
 	Email      string
@@ -25,6 +26,7 @@ func (p *Person) String() string {
 	return ""
 }
 
+// Event represents a single calendar event (RFC 5545)
 type Event struct {
 	// UID - unique identifier of event, mandatory
 	UID string
