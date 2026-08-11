@@ -213,7 +213,7 @@ func TestRenderValidEvent(t *testing.T) {
 	}
 
 	expected := "BEGIN:VEVENT\r\nUID:meeting-001\r\nSUMMARY:Team Standup\r\n"
-	if !bytes.Contains([]byte(buf.String()), []byte(expected)) {
+	if !bytes.Contains(buf.Bytes(), []byte(expected)) {
 		t.Errorf("Expected event in output, got '%s'", buf.String())
 	}
 }
